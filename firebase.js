@@ -26,11 +26,12 @@ const envHistoryRef = rootRef.child('wellEnvironmentHistory');
 
 function updateDatabase(data) {
   // console.log(pin, data);
+  var timestamp = Date.now();
   for (var key in data) {
     if (data.hasOwnProperty(key)) {
         console.log(key + " -> " + data[key]);
         envRef.child(key).set(data[key]);
-        envHistoryRef.child(Date.now()).child(key).set(data[key]);
+        envHistoryRef.child(timestamp).child(key).set(data[key]);
     }
 }
 }
