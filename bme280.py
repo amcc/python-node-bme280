@@ -168,7 +168,7 @@ def main():
 #  print "Pressure : ", pressure, "hPa"
 #  print "Humidity : ", humidity, "%"
 
-  print "{'temperature':",temperature,",'pressure':",pressure,",'humidity':",humidity,"}"
+  print "{temperature:",temperature,",pressure:",pressure,",humidity:",humidity,"}"
 
 if __name__=="__main__":
    main()
