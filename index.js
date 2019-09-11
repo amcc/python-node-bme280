@@ -10,8 +10,8 @@ process.stdout.on("data", function(chunk) {
   var textChunk = chunk.toString("utf8"); // buffer to string
   // console.log(textChunk);
   // js read this
-  var json = JSON.parse(textChunk);
+  //var json = JSON.parse(textChunk);
 
-  console.log(json)
+  console.log(textChunk[temperature])
   // util.log(textChunk);
 });
