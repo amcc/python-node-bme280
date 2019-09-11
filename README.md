@@ -9,4 +9,4 @@ e.g.
 
 ````print '{"temperature":',temperature,',"pressure":',pressure,',"humidity":',humidity,'}'````
 
-he javascript does some stuff to strip any problematic invisible characters from the string and turns it into JSON, you should then be able to use the JSON output
+The javascript does some stuff to strip any problematic invisible characters from the string and turns it into JSON, you should then be able to use the JSON output
