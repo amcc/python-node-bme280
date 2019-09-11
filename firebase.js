@@ -22,6 +22,7 @@ firebaseAdmin.initializeApp({
 // setup firebase refs
 const rootRef = firebaseAdmin.database().ref('wateringStatus');
 const envRef = rootRef.child('wellEnvironment');
+const envHistoryRef = rootRef.child('wellEnvironmentHistory');
 
 function updateDatabase(data) {
   // console.log(pin, data);
@@ -29,6 +30,7 @@ function updateDatabase(data) {
     if (data.hasOwnProperty(key)) {
         console.log(key + " -> " + data[key]);
         envRef.child(key).set(data[key]);
+        envHistoryRef.child(firebaseAdmin.database.ServerValue.TIMESTAMP).child(key).set(data[key]);
     }
 }
 }

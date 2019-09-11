@@ -28,7 +28,7 @@ function getEnv(){
     // make JSON
     var json = JSON.parse(s);
   
-    console.log(json);
+    // console.log(json);
     FirebaseUpdate.updateDatabase(json);
   });
 }
