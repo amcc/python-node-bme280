@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/amcc/python-node-bme280#readme",
   "dependencies": {
+    "dotenv": "^8.1.0",
     "firebase": "^6.6.0",
     "firebase-admin": "^8.5.0"
   }
