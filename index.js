@@ -1,10 +1,7 @@
-// spawn_python.js
-// var util = require("util");
+// spawn the python to do the hard work
 
 var spawn = require("child_process").spawn;
 var process = spawn("python", ["bme280.py"]);
-
-// util.log("readingin");
 
 process.stdout.on("data", function(chunk) {
   var textChunk = chunk.toString("utf8"); // buffer to string
@@ -20,11 +17,8 @@ process.stdout.on("data", function(chunk) {
     .replace(/\\f/g, "\\f");
   // remove non-printable and other non-valid JSON chars
   s = s.replace(/[\u0000-\u0019]+/g, "");
-  // console.log(textChunk);
-  // js read this
+  // make JSON
   var json = JSON.parse(s);
 
   console.log(json);
-
-  // util.log(textChunk);
 });
