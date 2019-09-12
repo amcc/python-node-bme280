@@ -1,7 +1,12 @@
+const { exec } = require('child_process');
 const FirebaseUpdate = require('./firebase.js');
 
+// if (process.platform === 'linux') {
+  exec('chromium-browser --kiosk --incognito https://plant.suprasystems.studio/')
+// }
+
 // check the bme280 with a delay
-timeDelay = 3000;
+timeDelay = 4000;
 let timer = setInterval(getEnv, timeDelay);
 
 // spawn the python to do the hard work
