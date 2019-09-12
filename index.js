@@ -1,7 +1,7 @@
 const FirebaseUpdate = require('./firebase.js');
 
 // check the bme280 with a delay
-timeDelay = 5000;
+timeDelay = 3000;
 let timer = setInterval(getEnv, timeDelay);
 
 // spawn the python to do the hard work
