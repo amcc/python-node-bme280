@@ -10,8 +10,8 @@ var spawn = require("child_process").spawn;
 // get the latest environment variables
 function getEnv(){
   // to debug use python.py below
-  var process = spawn("python", ["bme280.py"]);
-  process.stdout.on("data", function(chunk) {
+  var spawner = spawn("python", ["python.py"]);
+  spawner.stdout.on("data", function(chunk) {
     var textChunk = chunk.toString("utf8"); // buffer to string
     // preserve newlines, etc - use valid JSON
     s = textChunk
@@ -30,6 +30,9 @@ function getEnv(){
   
     // console.log(json);
     FirebaseUpdate.updateDatabase(json);
+
+    // kill the process
+    spawner.kill();
   });
 }
 
