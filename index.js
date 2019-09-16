@@ -6,7 +6,7 @@ const FirebaseUpdate = require('./firebase.js');
 // }
 
 // check the bme280 with a delay
-timeDelay = 4000;
+let timeDelay = 4000;
 let timer = setInterval(getEnv, timeDelay);
 
 // spawn the python to do the hard work
@@ -34,7 +34,7 @@ function getEnv(){
     var json = JSON.parse(s);
   
     // console.log(json);
-    FirebaseUpdate.updateDatabase(json);
+    FirebaseUpdate.updateDatabase(json, timeDelay);
 
     // kill the process
     spawner.kill();

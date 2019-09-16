@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 var firebaseAdmin = require("firebase-admin");
 
 var serviceAccount = {
@@ -11,7 +11,8 @@ var serviceAccount = {
   auth_uri: "https://accounts.google.com/o/oauth2/auth",
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-  client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zvqgh%40piwatering-80e6c.iam.gserviceaccount.com"
+  client_x509_cert_url:
+    "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zvqgh%40piwatering-80e6c.iam.gserviceaccount.com"
 };
 
 firebaseAdmin.initializeApp({
@@ -20,22 +21,34 @@ firebaseAdmin.initializeApp({
 });
 
 // setup firebase refs
-const rootRef = firebaseAdmin.database().ref('wateringStatus');
-const envRef = rootRef.child('wellEnvironment');
-const envHistoryRef = rootRef.child('wellEnvironmentHistory');
+const rootRef = firebaseAdmin.database().ref("wateringStatus");
+const envRef = rootRef.child("wellEnvironment");
+const envHistoryRef = rootRef.child("wellEnvironmentHistory");
 
-function updateDatabase(data) {
+const historyTimer = 60 * 1000; //store once per minute
+let counter = 0;
+
+function updateDatabase(data, timeDelay = 4000) {
   // console.log(pin, data);
   var timestamp = Date.now();
   for (var key in data) {
     if (data.hasOwnProperty(key)) {
-        console.log(key + " -> " + data[key]);
-        envRef.child(key).set(data[key]);
-        envHistoryRef.child(timestamp).child(key).set(data[key]);
+      console.log(key + " -> " + data[key]);
+      envRef.child(key).set(data[key]);
+      if (counter == 0) {
+        envHistoryRef
+          .child(timestamp)
+          .child(key)
+          .set(data[key]);
+      }
     }
-}
+  }
+  if (counter > historyTimer / timerdelay) {
+    counter = 0;
+  }
+  counter++;
 }
 
 module.exports = {
-  updateDatabase,
+  updateDatabase
 };
