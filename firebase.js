@@ -43,7 +43,7 @@ function updateDatabase(data, timeDelay = 4000) {
       }
     }
   }
-  if (counter > historyTimer / timerdelay) {
+  if (counter > historyTimer / timeDelay) {
     counter = 0;
   }
   counter++;

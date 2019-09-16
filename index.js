@@ -1,9 +1,7 @@
 const { exec } = require('child_process');
 const FirebaseUpdate = require('./firebase.js');
 
-// if (process.platform === 'linux') {
-  exec('chromium-browser --kiosk --incognito https://plant.suprasystems.studio/')
-// }
+
 
 // check the bme280 with a delay
 let timeDelay = 4000;
@@ -41,11 +39,6 @@ function getEnv(){
   });
 }
 
-// process.on('SIGINT', () => {
-//   // On CTRL+C force a clean exit to use above
-//   process.exit(0);
-// });
-
-// kill() {
-//   clearTimeout(timer);
+// if (process.platform === 'linux') {
+  //exec('chromium-browser --kiosk --incognito https://plant.suprasystems.studio/')
 // }
