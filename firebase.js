@@ -45,8 +45,9 @@ function updateDatabase(data, timeDelay = 4000) {
   }
   if (counter > historyTimer / timeDelay) {
     counter = 0;
+  } else {
+    counter++;
   }
-  counter++;
 }
 
 module.exports = {
