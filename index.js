@@ -40,5 +40,5 @@ function getEnv(){
 }
 
 // if (process.platform === 'linux') {
-  //exec('chromium-browser --kiosk --incognito https://plant.suprasystems.studio/')
+  exec('chromium-browser --kiosk --incognito https://plant.suprasystems.studio/')
 // }
