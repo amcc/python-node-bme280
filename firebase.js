@@ -25,7 +25,7 @@ const rootRef = firebaseAdmin.database().ref("wateringStatus");
 const envRef = rootRef.child("wellEnvironment");
 const envHistoryRef = rootRef.child("wellEnvironmentHistory");
 
-const historyTimer = 60 * 1000; //store once per minute
+const historyTimer = 60 * 60 * 1000; //store once per minute
 let counter = 0;
 
 function updateDatabase(data, timeDelay = 4000) {
